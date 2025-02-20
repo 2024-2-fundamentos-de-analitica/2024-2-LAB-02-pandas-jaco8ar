@@ -5,6 +5,10 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
+from homework.functions import (
+    load_data
+)
 
 def pregunta_09():
     """
@@ -23,3 +27,9 @@ def pregunta_09():
     39  39  E   5  1998-01-26  1998
 
     """
+    df = load_data(0)
+    df = df.replace("1999-02-29", "1999-02-28")
+    df["c3"] = pd.to_datetime(df["c3"], format="mixed")
+    df["year"] = df["c3"].dt.year.astype(str)
+ 
+    return df

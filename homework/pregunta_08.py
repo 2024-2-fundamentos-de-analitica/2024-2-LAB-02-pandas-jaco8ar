@@ -4,7 +4,10 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 `tbl2.tsv`. En este laboratorio solo puede utilizar las funciones y 
 librerias de pandas para resolver las preguntas.
 """
-
+import pandas as pd
+from homework.functions import (
+    load_data
+)
 
 def pregunta_08():
     """
@@ -22,3 +25,6 @@ def pregunta_08():
     39   39   E    5  1998-01-26    44
 
     """
+    df = load_data(0)
+    df["suma"] = df["c0"] + df["c2"]
+    return df

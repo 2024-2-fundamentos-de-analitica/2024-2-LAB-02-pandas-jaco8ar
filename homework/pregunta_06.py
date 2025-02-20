@@ -5,6 +5,10 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
+from homework.functions import (
+    load_data
+)
 
 def pregunta_06():
     """
@@ -15,3 +19,5 @@ def pregunta_06():
     ['A', 'B', 'C', 'D', 'E', 'F', 'G']
 
     """
+    df = load_data(1)
+    return sorted([x.upper() for x in df["c4"].unique()])
